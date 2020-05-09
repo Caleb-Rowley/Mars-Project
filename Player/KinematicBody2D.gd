@@ -7,6 +7,8 @@ extends KinematicBody2D
 export var speed = Vector2(300,300)
 var velocity = Vector2()
 var mouse_location
+var health = 11
+var invincible = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,3 +30,13 @@ func get_direction():
 func teleport():
 	mouse_location = get_global_mouse_position()
 	set_position(mouse_location)
+
+
+func hurt():
+	if !invincible:
+		health -= 1
+		invincible = true
+		$Invicibility.start()
+
+func _on_Invicibility_timeout():
+	invincible = false

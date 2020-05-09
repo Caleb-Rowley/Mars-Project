@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pconv3.5.1-1.png.png-2cabd47af88f39b5952ce355cc1758b0.stex"
+path="res://.import/Health Bar 4.png-9355c6486c18ca18bd3ea2a8c8771f31.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/pconv3.5.1-1.png.png"
-dest_files=[ "res://.import/pconv3.5.1-1.png.png-2cabd47af88f39b5952ce355cc1758b0.stex" ]
+source_file="res://Assets/Health Bar 4.png"
+dest_files=[ "res://.import/Health Bar 4.png-9355c6486c18ca18bd3ea2a8c8771f31.stex" ]
 
 [params]
 

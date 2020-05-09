@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CanvasLayer
 
 
 # Declare member variables here. Examples:
@@ -12,10 +12,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# warning-ignore:unused_argument
 func _process(delta):
-	pass
-
-
-
-func _on_Area2D_area_entered(area):
-	print("collision")
+	$HealthBar.animation = str(get_node('../Player').health)

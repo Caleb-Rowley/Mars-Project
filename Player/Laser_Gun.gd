@@ -19,6 +19,10 @@ func _ready():
 func _process(delta):
 	mouse_position = get_local_mouse_position()
 	rotation += mouse_position.angle()
+	if sin(rotation) > 0:
+		z_index = 0
+	else:
+		z_index = -1
 	if Input.is_action_just_pressed("click"):
 		shoot()
 func shoot():
