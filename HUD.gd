@@ -1,17 +1,16 @@
 extends CanvasLayer
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var Player
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Player = get_node('../Player')
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # warning-ignore:unused_argument
 func _process(delta):
-	$HealthBar.animation = str(get_node('../Player').health)
+	$HealthBar.animation = str(Player.health)
+	$PowerBar.animation = str(Player.power)

@@ -26,4 +26,8 @@ current = true
 
 [node name="Invicibility" type="Timer" parent="."]
 one_shot = true
+
+[node name="RechargeTimer" type="Timer" parent="."]
+autostart = true
 [connection signal="timeout" from="Invicibility" to="." method="_on_Invicibility_timeout"]
+[connection signal="timeout" from="RechargeTimer" to="." method="_on_RechargeTimer_timeout"]

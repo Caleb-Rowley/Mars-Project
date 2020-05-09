@@ -1,13 +1,11 @@
 extends KinematicBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 export var speed = Vector2(300,300)
 var velocity = Vector2()
 var mouse_location
 var health = 11
+var power = 31
 var invincible = false
 
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +14,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# warning-ignore:unused_argument
 func _process(delta):
 	var direction = get_direction()
 	velocity = direction * speed
@@ -28,15 +27,23 @@ func get_direction():
 	return Vector2(Input.get_action_strength("right")-Input.get_action_strength("left"),Input.get_action_strength("down")-Input.get_action_strength("up"))
 
 func teleport():
-	mouse_location = get_global_mouse_position()
-	set_position(mouse_location)
+	if power >= 8:
+		mouse_location = get_global_mouse_position()
+		set_position(mouse_location)
+		power -= 8
 
 
-func hurt():
+func hurt(damage):
 	if !invincible:
-		health -= 1
+		health -= damage
+		health = clamp(health, 0, 11)
 		invincible = true
 		$Invicibility.start()
 
 func _on_Invicibility_timeout():
 	invincible = false
+
+
+func _on_RechargeTimer_timeout():
+	power +=1
+	power = clamp(power, 0, 31)
